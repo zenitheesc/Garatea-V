@@ -1,22 +1,22 @@
 #include "package_handler_tx.h"
 
-byte* struct_to_byte(package pkg){
+uint8_t* struct_to_byte(package pkg){
 	
 	//casts a pointer to byte from pkg address
-	byte *ptrByte  = (byte *) &pkg;
+	uint8_t *ptrByte  = (uint8_t *) &pkg;
 	
 	return ptrByte;
 	
 }
 
-void set_bmp(package* pkg, float32 bmp){
+void set_bmp(package* pkg, uint32_t bmp){
 
 	pkg->bmp = bmp;
 	
 	return;
 }
 
-void set_gps(package* pkg, float32 gps[3]){
+void set_gps(package* pkg, uint32_t gps[3]){
 
 	pkg->gps[0] = gps[0];
 	pkg->gps[1] = gps[1];
@@ -25,24 +25,24 @@ void set_gps(package* pkg, float32 gps[3]){
 	return;
 }
 
-void set_pkg_no(package* pkg, int32 no){
+void set_pkg_no(package* pkg, uint32_t no){
 
 	pkg->pkg_no = no;
 	
 	return;
 }
 
-float32 get_bmp(package pkg){
+uint32_t get_bmp(package pkg){
 	
 	return pkg.bmp;
 }
 
-float32* get_gps(package pkg){
+uint32_t* get_gps(package pkg){
 	
 	return pkg.gps;
 }
 
-int32 get_pkg_no(package pkg){
+uint32_t get_pkg_no(package pkg){
 	
 	return pkg.pkg_no;
 }
@@ -59,7 +59,7 @@ int main(){
 	pkg.tk2 = ';';
 	pkg.tk3 = ';';
 	
-	byte *data = struct_to_byte(pkg);
+	uint8_t *data = struct_to_byte(pkg);
 	
 	printf("%c\n", data[4]);
 	
